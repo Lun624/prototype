@@ -34,8 +34,8 @@ ext {
 }
 
 dependencies {
-//    implementation project('prototype-data-redis')
-    implementation project('prototype-data-mysql')
+    implementation project('prototype-data-redis_main')
+    implementation project('prototype-data-mysql_main')
 //    implementation project('prototype-oauth')
 
     implementation('org.springframework.boot:spring-boot-starter-actuator')

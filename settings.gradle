@@ -1,6 +1,6 @@
 rootProject.name = 'prototype'
 
-include('prototype-central-base')
+include 'prototype-central-base'
 include 'prototype-data-redis'
 include 'prototype-data-mysql'
 
