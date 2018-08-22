@@ -1,10 +1,12 @@
-package xyz.masaimara.prototype.application.config.data.rdb.mysql;
+package xyz.masaimara.prototype.application.config.data.rdb;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 
@@ -12,21 +14,14 @@ import javax.sql.DataSource;
  * configuration data sources
  */
 
-@org.springframework.context.annotation.Configuration
-public class MysqlDataAccessConfiguration {
-
-//    @Autowired
-//    @Primary
-//    @ConfigurationProperties("spring.datasource")
-//    public DataSourceProperties dataSourceProperties() {
-//        return new DataSourceProperties();
-//    }
+@Configuration
+@PropertySource({"classpath:/datasource.properties", "classpath:/mybatis.properties"})
+public class DataAccessConfiguration {
 
     @Bean
     @Primary
     @Qualifier("prototypeDataSource")
-//    @ConfigurationProperties("spring.datasource")
-    public DataSource bisonDataSource(DataSourceProperties properties) {
+    public DataSource dataSource(DataSourceProperties properties) {
         return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
                 .build();
     }
