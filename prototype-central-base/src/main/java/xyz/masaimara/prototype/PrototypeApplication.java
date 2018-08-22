@@ -37,7 +37,7 @@ public class PrototypeApplication implements CommandLineRunner {
         logger.info("result:{}", testMapper.findJobById("0e9573bb7ad5409daf3299d1a0e4a48f"));
 
         valueOperations.set("0e9573bb7ad5409daf3299d1a0e4a48f", "http://masaimara.xyz");
-        listOperations.leftPush("spring.boot.redis.test","0e9573bb7ad5409daf3299d1a0e4a48f");
+        listOperations.leftPush("spring.boot.redis.test", "0e9573bb7ad5409daf3299d1a0e4a48f");
         String key = "spring.boot.redis.test";
     }
 }
