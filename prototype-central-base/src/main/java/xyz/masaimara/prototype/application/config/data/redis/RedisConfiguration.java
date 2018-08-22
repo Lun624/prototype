@@ -10,9 +10,9 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 @Configuration
 public class RedisConfiguration {
 
-    @Bean
-    @Qualifier("stringRedisTemplate")
-    public RedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        return new StringRedisTemplate(redisConnectionFactory);
-    }
+//    @Bean
+//    @Qualifier("stringRedisTemplate")
+//    public RedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+//        return new StringRedisTemplate(redisConnectionFactory);
+//    }
 }
