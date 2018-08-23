@@ -6,8 +6,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RedisRepository implements AbstractRedisRepository {
 
+    private final RedisTemplates redisTemplates;
+
     @Autowired
-    private RedisTemplates redisTemplates;
+    public RedisRepository(RedisTemplates redisTemplates) {
+        this.redisTemplates = redisTemplates;
+    }
 
     public void addLink(String userId, String url) {
         redisTemplates.getStringRedisTemplate().opsForList().leftPush(userId, url);
