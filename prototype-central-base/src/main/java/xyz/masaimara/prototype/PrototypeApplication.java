@@ -6,26 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.ValueOperations;
 import xyz.masaimara.prototype.data.mapper.TestMapper;
+import xyz.masaimara.prototype.data.redis.Address;
+import xyz.masaimara.prototype.data.redis.Person;
+import xyz.masaimara.prototype.data.redis.RedisRepository;
 
 @SpringBootApplication
 public class PrototypeApplication implements CommandLineRunner {
     private final Logger logger = LoggerFactory.getLogger(PrototypeApplication.class);
 
     private final TestMapper testMapper;
-//    @Autowired
-//    private RedisTest test;
 
-    private final ListOperations<String, String> listOperations;
-    private ValueOperations<String, String> valueOperations;
+    private final RedisRepository redisRepository;
 
     @Autowired
-    public PrototypeApplication(TestMapper testMapper, ListOperations<String, String> listOperations, ValueOperations<String, String> valueOperations) {
+    public PrototypeApplication(TestMapper testMapper, RedisRepository redisRepository) {
         this.testMapper = testMapper;
-        this.listOperations = listOperations;
-        this.valueOperations = valueOperations;
+        this.redisRepository = redisRepository;
     }
 
     public static void main(String[] args) {
@@ -36,8 +33,12 @@ public class PrototypeApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("result:{}", testMapper.findJobById("0e9573bb7ad5409daf3299d1a0e4a48f"));
 
-        valueOperations.set("0e9573bb7ad5409daf3299d1a0e4a48f", "http://masaimara.xyz");
-        listOperations.leftPush("spring.boot.redis.test", "0e9573bb7ad5409daf3299d1a0e4a48f");
-        String key = "spring.boot.redis.test";
+//        redisRepository.addLink("0e9573bb7ad5409daf3299d1a0e4a48f", "http://masaimara.xyz");
+        redisRepository.addToken("prototype.user.token", "0e9573bb7ad5409daf3299d1a0e4a48f1");
+
+//        Person person = new Person();
+//        person.setFirstname("a").setLastname("b")
+//                .setAddress(new Address().setCountry("China").setCity("Shanghai"));
+//        redisRepository.wirteJack("0e9573bb7ad5409daf3299d1a0e4a48f1", person);
     }
 }
