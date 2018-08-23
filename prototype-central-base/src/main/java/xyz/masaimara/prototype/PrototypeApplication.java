@@ -7,8 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import xyz.masaimara.prototype.data.mapper.TestMapper;
-import xyz.masaimara.prototype.data.redis.Address;
-import xyz.masaimara.prototype.data.redis.Person;
 import xyz.masaimara.prototype.data.redis.RedisRepository;
 
 @SpringBootApplication

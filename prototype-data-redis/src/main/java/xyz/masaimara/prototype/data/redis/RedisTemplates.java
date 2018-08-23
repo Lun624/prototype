@@ -7,11 +7,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RedisTemplates {
-    @Autowired
-    public RedisTemplate redisTemplate;
+    public final RedisTemplate redisTemplate;
+
+    public final StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    public StringRedisTemplate stringRedisTemplate;
+    public RedisTemplates(RedisTemplate redisTemplate, StringRedisTemplate stringRedisTemplate) {
+        this.redisTemplate = redisTemplate;
+        this.stringRedisTemplate = stringRedisTemplate;
+    }
 
     public RedisTemplate getRedisTemplate() {
         return redisTemplate;
