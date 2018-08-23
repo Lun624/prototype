@@ -33,7 +33,6 @@ public class PrototypeApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("result:{}", testMapper.findJobById("0e9573bb7ad5409daf3299d1a0e4a48f"));
 
-//        redisRepository.addLink("0e9573bb7ad5409daf3299d1a0e4a48f", "http://masaimara.xyz");
         redisRepository.addToken("prototype.user.token", "0e9573bb7ad5409daf3299d1a0e4a48f1");
 
 //        Person person = new Person();
