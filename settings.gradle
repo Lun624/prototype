@@ -1,6 +1,8 @@
 rootProject.name = 'prototype'
 
-include 'prototype-central-base'
-include 'prototype-data-redis'
-include 'prototype-data-mysql'
-
+include ':prototype-central-base',
+        ':prototype-data-redis',
+        ':prototype-data-mysql',
+        ':prototype-api',
+        ':prototype-api-core',
+        ':prototype-core'
